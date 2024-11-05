@@ -3,8 +3,7 @@ info:
   title: Mysql_CRUD
   version: 1.0.0
 servers:
-  - url: http://localhost:3000
-paths:
+  - url: https://golden-granita-ad70ed.netlify.app
   /api/v1/student:
     get:
       tags:
