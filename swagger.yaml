@@ -4,6 +4,7 @@ info:
   version: 1.0.0
 servers:
   - url: https://golden-granita-ad70ed.netlify.app
+paths:
   /api/v1/student:
     get:
       tags:
