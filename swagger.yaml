@@ -1,0 +1,100 @@
+openapi: 3.0.0
+info:
+  title: Mysql_CRUD
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+paths:
+  /api/v1/student:
+    get:
+      tags:
+        - default
+      summary: Get All Student
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - default
+      summary: Create Student
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Term
+                roll_no: 5
+                medium: art
+                fees: 1000
+                class_no: 1
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/student/{id}:
+    get:
+      tags:
+        - default
+      summary: Get Student By Id
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: The ID of the student
+          schema:
+            type: integer
+            example: 123
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+    patch:
+      tags:
+        - default
+      summary: Update Student
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: The ID of the student
+          schema:
+            type: integer
+            example: 123
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: tom
+                roll_no: 1
+                fees: 1000
+                class_no: 10
+                medium: english updated here
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - default
+      summary: Delete Student
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: The ID of the student
+          schema:
+            type: integer
+            example: 123
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
