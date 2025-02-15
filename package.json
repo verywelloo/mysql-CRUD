@@ -17,6 +17,7 @@
     "express-rate-limit": "^7.4.1",
     "helmet": "^8.0.0",
     "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
     "mysql2": "^3.11.3",
     "nodemailer": "^6.9.16",
     "swagger-ui-express": "^5.0.1",

@@ -6,14 +6,14 @@ const getStudents = async (req, res) => {
     const students = await mySqlPool.query("SELECT * FROM students");
     if (!students) {
       return res.status(404).send({
-        sucess: false,
+        success: false,
         message: "No Records found",
       });
     }
 
     res.status(200).send({
-      sucess: true,
-      message: "All Students Recods",
+      success: true,
+      message: "All Students Recode",
       totalStudent: students[0].length,
       students: students[0],
     });
@@ -32,7 +32,7 @@ const getStudentById = async (req, res) => {
     const studentId = req.params.id;
     if (!studentId) {
       return res.status(404).send({
-        sucess: false,
+        success: false,
         message: "Invalid Or Provide Student id",
       });
     }
@@ -42,13 +42,13 @@ const getStudentById = async (req, res) => {
     ]);
     if (!student) {
       return res.status(404).send({
-        sucess: false,
+        success: false,
         message: "No Records found",
       });
     }
     res.status(200).send({
-      sucess: true,
-      message: "All Students Recods",
+      success: true,
+      message: "All Students Recode",
       studentDetails: student[0],
     });
   } catch (error) {
@@ -66,7 +66,7 @@ const createStudent = async (req, res) => {
     const { name, roll_no, class_no, medium, fees } = req.body;
     if (!name || !roll_no || !class_no || !medium || !fees) {
       return res.status(500).send({
-        sucess: false,
+        success: false,
         message: "Please Provide all fields",
       });
     }
@@ -76,12 +76,12 @@ const createStudent = async (req, res) => {
     );
     if (!student) {
       return res.status(404).send({
-        sucess: false,
+        success: false,
         message: "Error In INSERT QUERY",
       });
     }
     res.status(201).send({
-      sucess: true,
+      success: true,
       message: "New Student Record Created",
     });
   } catch (error) {
@@ -99,7 +99,7 @@ const updateStudent = async (req, res) => {
     const studentId = req.params.id;
     if (!studentId) {
       return res.status(400).send({
-        sucess: false,
+        success: false,
         message: "Invalid ID or provide id",
       });
     }
@@ -108,7 +108,7 @@ const updateStudent = async (req, res) => {
 
     if (!name || !roll_no || !class_no || !fees || !medium) {
       return res.status(400).send({
-        sucess: false,
+        success: false,
         message: "Please Provide all fields",
       });
     }
@@ -119,13 +119,13 @@ const updateStudent = async (req, res) => {
 
     if (!student) {
       return res.status(500).send({
-        sucess: false,
+        success: false,
         message: "Error In UPDATE Data",
       });
     }
 
     res.status(200).send({
-      sucess: true,
+      success: true,
       message: "Student Details Updated",
     });
   } catch (error) {
@@ -144,7 +144,7 @@ const deleteStudent = async (req, res) => {
     const studentId = req.params.id;
     if (!studentId) {
       return res.status(400).send({
-        sucess: false,
+        success: false,
         message: "Please Provide Student Id or Valid Student Id",
       });
     }
@@ -152,7 +152,7 @@ const deleteStudent = async (req, res) => {
     await mySqlPool.query("DELETE FROM students WHERE id = ?", [studentId]);
 
     res.status(200).send({
-      sucess: true,
+      success: true,
       message: "Student Deleted Successfully",
     });
   } catch (error) {
